@@ -3,10 +3,12 @@ import { ProductContext } from '../context/ProductContext';
 import ProductCard from '../components/ProductCard';
 import Search from './Search';
 import { CartContext } from '../context/CartContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const productData = useContext(ProductContext);
-  const { addToCart } = useContext(CartContext);
+  const { cartItems, addToCart } = useContext(CartContext);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -35,6 +37,7 @@ const Home = () => {
 
   return (
     <div>
+      <ToastContainer />
       <h1 className='mt-10'>All Products</h1>
       <Search onSearch={handleSearch} />
       {searchResults.length === 0 && <h1>No results found.</h1>}

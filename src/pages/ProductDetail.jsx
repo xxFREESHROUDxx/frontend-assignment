@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ProductContext } from '../context/ProductContext';
+import { CartContext } from '../context/CartContext';
+import { ToastContainer } from 'react-toastify';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const productData = useContext(ProductContext);
+  const { addToCart } = useContext(CartContext);
 
   if (productData.isLoading) return <h1>Loading...</h1>;
   if (productData.isError) return <h1>Error Loading Data!</h1>;
@@ -43,6 +46,7 @@ const ProductDetail = () => {
 
   return (
     <div className='p-5 flex flex-col justify-between items-center'>
+      <ToastContainer />
       <div className='grid md:grid-cols-2 gap-6'>
         <div className=''>
           <img
@@ -74,7 +78,10 @@ const ProductDetail = () => {
             </div>
           </div>
           <div className='flex-grow'></div>
-          <button className='bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-light'>
+          <button
+            onClick={() => addToCart(product)}
+            className='bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-light'
+          >
             Add to Cart
           </button>
         </div>

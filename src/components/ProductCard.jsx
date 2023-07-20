@@ -8,6 +8,12 @@ const ProductCard = ({ product, addToCart }) => {
     navigate(`/product/${productId}`);
   };
 
+  const handleAddToCart = (e) => {
+    // prevent event propagatioin to avoid redirection when clicked on the button
+    e.stopPropagation();
+    addToCart();
+  };
+
   return (
     <div
       className='rounded-xl flex flex-col justify-center items-center p-5 bg-primary cursor-pointer hover:bg-[#1e204c] border'
@@ -18,7 +24,10 @@ const ProductCard = ({ product, addToCart }) => {
         <p className='pb-2'>{product.title}</p>
         <p>Price: ${product.price}</p>
       </div>
-      <button className='bg-blue-500 text-white px-4 py-2 rounded-lg mt-4' onClick={addToCart}>
+      <button
+        className='bg-blue-500 text-white px-4 py-2 rounded-lg mt-4'
+        onClick={handleAddToCart}
+      >
         Add to Cart
       </button>
     </div>
