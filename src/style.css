@@ -1,0 +1,85 @@
+/* ------------------------------------------Primary Colors ---------------------- */
+
+.bg-primary {
+  background-color: #464cb3;
+}
+
+.bg-primary-light {
+  background-color: #a2a7ff;
+}
+
+.bg-primary-dark {
+  background-color: #343a40;
+}
+
+.text-primary {
+  color: #646cff;
+}
+
+.text-primary-dark {
+  color: #343a40;
+}
+
+.text-primary-light {
+  color: #a2a7ff;
+}
+
+/* ------------------------------------------Secondary Colors ---------------------- */
+
+.bg-secondary {
+  background-color: #040458;
+}
+
+.bg-secondary-dark {
+  background-color: #54595e;
+}
+
+.bg-secondary-light {
+  background-color: #abb5be;
+}
+
+.text-secondary {
+  color: #040458;
+}
+
+.text-secondary-dark {
+  color: #54595e;
+}
+
+.text-secondary-light {
+  color: #abb5be;
+}
+
+/* ------------------------------------------Status Colors--------------- ---------------------- */
+
+.bg-success {
+  background-color: #28a745;
+}
+
+.bg-danger {
+  background-color: #dc3545;
+}
+
+.bg-warning {
+  background-color: #ffc107;
+}
+
+.bg-info {
+  background-color: #17a2b8;
+}
+
+.text-success {
+  color: #28a745;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.text-warning {
+  color: #ffc107;
+}
+
+.text-info {
+  color: #17a2b8;
+}
