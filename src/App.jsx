@@ -6,6 +6,7 @@ import { ProductProvider } from './context/ProductContext';
 import ProductDetail from './pages/ProductDetail';
 import Home from './pages/Home';
 import { CartProvider } from './context/CartContext';
+import MyCart from './pages/MyCart';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Routes>
               <Route exact path='/' element={<Home />} />
               <Route path='/product/:id' element={<ProductDetail />} />
+              <Route path='/cart' element={<MyCart />} />
             </Routes>
           </div>
         </ProductProvider>
