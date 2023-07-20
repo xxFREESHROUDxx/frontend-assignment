@@ -2,9 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import { ProductContext } from '../context/ProductContext';
 import ProductCard from '../components/ProductCard';
 import Search from './Search';
+import { CartContext } from '../context/CartContext';
 
 const Home = () => {
   const productData = useContext(ProductContext);
+  const { addToCart } = useContext(CartContext);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -27,6 +29,10 @@ const Home = () => {
     }
   };
 
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  };
+
   return (
     <div>
       <h1 className='mt-10'>All Products</h1>
@@ -35,7 +41,11 @@ const Home = () => {
       {searchResults.length > 0 && (
         <div className='grid p-5 grid-cols-4 gap-4'>
           {searchResults.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              addToCart={() => handleAddToCart(product)}
+            />
           ))}
         </div>
       )}
