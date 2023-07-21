@@ -5,11 +5,13 @@ import Search from './Search';
 import { CartContext } from '../context/CartContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeContext } from '../context/ThemeContext';
 
 const Home = () => {
   const productData = useContext(ProductContext);
   const { cartItems, addToCart } = useContext(CartContext);
   const [searchResults, setSearchResults] = useState([]);
+  const { darkTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     // Initially, display all products
@@ -37,7 +39,7 @@ const Home = () => {
   return (
     <div className='py-5 md:py-10 lg:py-16'>
       <ToastContainer />
-      <h1>All Products</h1>
+      <h1 className={`${darkTheme ? 'text-white' : ''}`}>All Products</h1>
       <Search onSearch={handleSearch} />
       {searchResults.length === 0 && (
         <h1 className='h-[500px] flex items-center justify-center'>No results found.</h1>

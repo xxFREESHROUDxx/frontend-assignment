@@ -3,11 +3,13 @@ import { useParams, Link } from 'react-router-dom';
 import { ProductContext } from '../context/ProductContext';
 import { CartContext } from '../context/CartContext';
 import { ToastContainer } from 'react-toastify';
+import { ThemeContext } from '../context/ThemeContext';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const productData = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
+  const { darkTheme } = useContext(ThemeContext);
 
   if (productData.isLoading) return <h1>Loading...</h1>;
   if (productData.isError) return <h1>Error Loading Data!</h1>;
@@ -48,14 +50,22 @@ const ProductDetail = () => {
     <div className='p-5 flex flex-col justify-between items-center'>
       <ToastContainer />
       <div className='grid md:grid-cols-2 gap-6'>
-        <div className='flex items-center justify-center p-4 border shadow-lg shadow-gray-500 rounded-lg bg-gray-100'>
+        <div
+          className={`flex items-center justify-center p-4 border shadow-lg shadow-gray-500 rounded-lg ${
+            darkTheme ? 'bg-light-gray' : 'bg-gray'
+          }`}
+        >
           <img
             src={product.image}
             alt={product.title}
             className='w-[500px] h-[700px] rounded-xl shadow-md mb-4'
           />
         </div>
-        <div className='border-0 bg-light-gray shadow-lg shadow-gray-500 rounded-xl flex flex-col items-start justify-evenly gap-4 px-6 py-4 text-left'>
+        <div
+          className={`border-0 shadow-lg shadow-gray-500 rounded-xl flex flex-col items-start justify-evenly gap-4 px-6 py-4 text-left ${
+            darkTheme ? 'bg-light-gray' : 'bg-gray'
+          }`}
+        >
           <div className='w-full text-center rounded-lg px-4 py-2 mb-4'>
             <h1 className='text-3xl font-semibold'>{product.title}</h1>
           </div>

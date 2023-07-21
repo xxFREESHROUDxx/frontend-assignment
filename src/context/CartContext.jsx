@@ -1,10 +1,12 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { ThemeContext } from './ThemeContext';
 
 const CartContext = createContext(null);
 
 const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  const { darkTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
@@ -33,6 +35,7 @@ const CartProvider = ({ children }) => {
 
     toast.success('Product added to cart!', {
       position: 'bottom-right',
+      theme: `${darkTheme ? 'dark' : 'light'}`,
     });
   };
 
@@ -56,6 +59,7 @@ const CartProvider = ({ children }) => {
     setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== id));
     toast.success('Item successfully removed from Cart!', {
       position: 'bottom-right',
+      theme: `${darkTheme ? 'dark' : 'light'}`,
     });
   };
 

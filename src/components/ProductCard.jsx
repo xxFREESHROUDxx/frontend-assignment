@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '../context/ThemeContext';
 
 const ProductCard = ({ product, addToCart }) => {
   const navigate = useNavigate();
+  const { darkTheme } = useContext(ThemeContext);
 
   const handleNavigation = (productId) => {
     navigate(`/product/${productId}`);
@@ -16,7 +18,9 @@ const ProductCard = ({ product, addToCart }) => {
 
   return (
     <div
-      className='rounded-xl shadow-md overflow-hidden cursor-pointer bg-[#c3c3c3] border-0 p-4 flex flex-col justify-between'
+      className={`rounded-xl shadow-md overflow-hidden cursor-pointer bg-[#c3c3c3] border-0 p-4 flex flex-col justify-between ${
+        darkTheme ? 'bg-purple' : 'bg-gray'
+      }`}
       onClick={() => handleNavigation(product.id)}
     >
       <figure className='relative w-full h-80'>

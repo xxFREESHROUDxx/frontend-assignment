@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import { ThemeContext } from '../context/ThemeContext';
 
 const MyCart = () => {
   const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
+  const { darkTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const getTotalPrice = () => {
@@ -20,14 +22,14 @@ const MyCart = () => {
   };
 
   return (
-    <div>
+    <div className={`p-8 rounded-xl ${darkTheme ? 'bg-purple' : ''}`}>
       <ToastContainer />
-      <div className='mt-10 mb-4'>
-        <h1 className='text-3xl font-bold'>My Cart</h1>
+      <div className='my-6'>
+        <h1 className={`text-4xl font-bold ${darkTheme ? 'text-white' : ''}`}>My Cart</h1>
       </div>
       {cartItems.length === 0 ? (
         <div className='h-[500px] flex items-center justify-center'>
-          <h1>Your cart is empty.</h1>
+          <h1 className={`${darkTheme ? 'text-dark' : ''}`}>Your cart is empty.</h1>
         </div>
       ) : (
         <div>
@@ -46,7 +48,7 @@ const MyCart = () => {
               {cartItems.map((item) => (
                 <tr key={item.id} className='border-b-2 border-gray-400'>
                   <td className='py-4'>
-                    <img src={item.image} alt={item.title} className='w-24 h-24' />
+                    <img src={item.image} alt={item.title} className='w-24 h-24 rounded-xl' />
                   </td>
                   <td className='py-4'>
                     <h3 className='text-base font-bold'>{item.title}</h3>
