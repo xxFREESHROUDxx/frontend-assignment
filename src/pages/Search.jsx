@@ -15,16 +15,11 @@ const Search = ({ onSearch }) => {
     <div className='p-5 mb-5 flex'>
       <input
         type='text'
-        placeholder='Enter product name...'
+        placeholder='Search product...'
         value={searchTerm}
         onChange={handleSearch}
-        className='w-full px-4 py-2 text-lg border border-gray-400 rounded-lg'
+        className='w-full px-4 py-2 text-lg rounded-3xl bg-white border-2'
       />
-      <div>
-        <button type='submit' className='ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg'>
-          Search
-        </button>
-      </div>
     </div>
   );
 };

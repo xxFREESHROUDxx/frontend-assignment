@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const Home = () => {
   const productData = useContext(ProductContext);
   const { cartItems, addToCart } = useContext(CartContext);
-  const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const Home = () => {
   };
 
   return (
-    <div className='p-5 md:p-10 lg:p-16'>
+    <div className='py-5 md:py-10 lg:py-16'>
       <ToastContainer />
       <h1>All Products</h1>
       <Search onSearch={handleSearch} />
@@ -44,7 +43,7 @@ const Home = () => {
         <h1 className='h-[500px] flex items-center justify-center'>No results found.</h1>
       )}
       {searchResults.length > 0 && (
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
           {searchResults.map((product) => (
             <ProductCard
               key={product.id}

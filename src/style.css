@@ -1,10 +1,6 @@
 /* ------------------------------------------Custom classes for styling ---------------------- */
 
-.bg-light {
-  background-color: #f8f8f8;
-}
-
-.bg-dark {
+/* .bg-dark {
   background-color: #242424;
 }
 
@@ -26,4 +22,28 @@
 
 .bg-secondary {
   background-color: #ff6600;
+} */
+
+.bg-green {
+  background-color: darkgreen;
+}
+
+.text-green {
+  color: darkgreen;
+}
+
+.bg-yellow {
+  background-color: #fbf0e4;
+}
+
+.bg-gray {
+  background-color: #cfcfcf;
+}
+
+.bg-light-gray {
+  background-color: #f5f6f6;
+}
+
+.text-gray {
+  color: #333;
 }

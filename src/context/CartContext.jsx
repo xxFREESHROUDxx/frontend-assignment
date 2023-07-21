@@ -33,7 +33,6 @@ const CartProvider = ({ children }) => {
 
     toast.success('Product added to cart!', {
       position: 'bottom-right',
-      theme: 'dark',
     });
   };
 
@@ -55,6 +54,9 @@ const CartProvider = ({ children }) => {
 
   const removeFromCart = (id) => {
     setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== id));
+    toast.success('Item successfully removed from Cart!', {
+      position: 'bottom-right',
+    });
   };
 
   const values = { cartItems, addToCart, removeFromCart, increaseQuantity, decreaseQuantity };

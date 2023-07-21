@@ -22,53 +22,59 @@ const MyCart = () => {
   return (
     <div>
       <ToastContainer />
-      <h1 className='mt-10 mb-4 text-3xl font-bold'>My Cart</h1>
+      <div className='mt-10 mb-4'>
+        <h1 className='text-3xl font-bold'>My Cart</h1>
+      </div>
       {cartItems.length === 0 ? (
-        <h1 className='h-[500px] flex items-center justify-center'>Your cart is empty.</h1>
+        <div className='h-[500px] flex items-center justify-center'>
+          <h1>Your cart is empty.</h1>
+        </div>
       ) : (
         <div>
           <table className='w-full mb-4'>
             <thead>
-              <tr className='border-b'>
-                <th className='py-2'></th>
+              <tr className='border-b-2 border-gray-400 text-lg'>
+                <th className='py-2'>Image</th>
                 <th className='py-2'>Product Name</th>
                 <th className='py-2'>Quantity</th>
                 <th className='py-2'>Unit Price</th>
                 <th className='py-2'>Total</th>
-                <th className='py-2'></th>
+                <th className='py-2'>Action</th>
               </tr>
             </thead>
             <tbody>
               {cartItems.map((item) => (
-                <tr key={item.id} className='border-b'>
+                <tr key={item.id} className='border-b-2 border-gray-400'>
                   <td className='py-4'>
                     <img src={item.image} alt={item.title} className='w-24 h-24' />
                   </td>
                   <td className='py-4'>
-                    <h3 className='text-lg font-bold'>{item.title}</h3>
+                    <h3 className='text-base font-bold'>{item.title}</h3>
                   </td>
                   <td className='py-4'>
                     <div className='flex items-center'>
                       <button
-                        className='bg-blue-500 text-white px-2 py-1 rounded-lg mr-2'
+                        className='bg-blue-500 border-0 hover:bg-blue-700 text-white px-2 py-1 rounded-lg mr-2'
                         onClick={() => decreaseQuantity(item.id)}
                       >
                         -
                       </button>
-                      <span>{item.quantity}</span>
+                      <span className='text-lg font-medium'>{item.quantity}</span>
                       <button
-                        className='bg-blue-500 text-white px-2 py-1 rounded-lg ml-2'
+                        className='bg-blue-500 border-0 hover:bg-blue-700 text-white px-2 py-1 rounded-lg ml-2'
                         onClick={() => increaseQuantity(item.id)}
                       >
                         +
                       </button>
                     </div>
                   </td>
-                  <td className='py-4'>${item.price}</td>
-                  <td className='py-4'>${(item.price * item.quantity).toFixed(2)}</td>
+                  <td className='py-4 text-lg font-semibold'>${item.price}</td>
+                  <td className='py-4 text-lg font-semibold'>
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </td>
                   <td className='py-4'>
                     <button
-                      className='bg-red-500 text-white px-4 py-2 rounded-lg'
+                      className='bg-red-500 border-0 hover:bg-red-600 text-white px-4 py-2 shadow-md'
                       onClick={() => removeFromCart(item.id)}
                     >
                       Remove
@@ -80,15 +86,12 @@ const MyCart = () => {
           </table>
           <h2 className='text-4xl font-semibold my-6'>Total: ${getTotalPrice()}</h2>
           <div className='flex justify-center gap-6 my-6'>
-            <button
-              onClick={() => handleCheckout()}
-              className='bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-light'
-            >
+            <button onClick={() => handleCheckout()} className='py-3 px-6 shadow-md'>
               Checkout
             </button>
             <button
               onClick={() => navigate('/')}
-              className='bg-blue-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-blue-400'
+              className='bg-blue-600 border-0 text-white py-3 px-6 shadow-md hover:bg-blue-700'
             >
               Continue Shopping
             </button>

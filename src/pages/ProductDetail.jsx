@@ -47,16 +47,16 @@ const ProductDetail = () => {
   return (
     <div className='p-5 flex flex-col justify-between items-center'>
       <ToastContainer />
-      <div className='grid md:grid-cols-2 gap-2'>
-        <div className=''>
+      <div className='grid md:grid-cols-2 gap-6'>
+        <div className='flex items-center justify-center p-4 border shadow-lg shadow-gray-500 rounded-lg bg-gray-100'>
           <img
             src={product.image}
             alt={product.title}
             className='w-[500px] h-[700px] rounded-xl shadow-md mb-4'
           />
         </div>
-        <div className='border rounded-xl flex flex-col items-start justify-evenly gap-4 px-6 py-4 text-left'>
-          <div className='bg-blue-500 w-full text-white text-center rounded-lg px-4 py-2 mb-4'>
+        <div className='border-0 bg-light-gray shadow-lg shadow-gray-500 rounded-xl flex flex-col items-start justify-evenly gap-4 px-6 py-4 text-left'>
+          <div className='w-full text-center rounded-lg px-4 py-2 mb-4'>
             <h1 className='text-3xl font-semibold'>{product.title}</h1>
           </div>
           <p className='text-2xl font-semibold mb-4'>
@@ -78,10 +78,7 @@ const ProductDetail = () => {
             </div>
           </div>
           <div className='flex-grow'></div>
-          <button
-            onClick={() => addToCart(product)}
-            className='bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-light'
-          >
+          <button onClick={() => addToCart(product)} className=''>
             Add to Cart
           </button>
         </div>
