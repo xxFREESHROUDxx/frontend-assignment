@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
+import { useCartContext } from '../context/CartContext';
 import { BsCart2 } from 'react-icons/bs';
-import { ThemeContext } from '../context/ThemeContext'; // Import the ThemeContext
+import { useThemeContext } from '../context/ThemeContext'; // Import the ThemeContext
 
 const Navbar = () => {
-  const { cartItems } = useContext(CartContext);
-  const { darkTheme, toggleTheme } = useContext(ThemeContext); // Get the theme and toggleTheme function
+  const { cartItems } = useCartContext();
+  const { darkTheme, toggleTheme } = useThemeContext(); // Get the theme and toggleTheme function
 
   return (
     <div

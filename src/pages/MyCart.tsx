@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import { ThemeContext } from '../context/ThemeContext';
+import { ToastContainer } from 'react-toastify';
+import { useCartContext } from '../context/CartContext';
+import { useThemeContext } from '../context/ThemeContext';
+import { CartItem } from '../context/types';
 
 const MyCart = () => {
-  const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity } = useContext(CartContext);
-  const { darkTheme } = useContext(ThemeContext);
+  const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity } = useCartContext();
+  const { darkTheme } = useThemeContext();
   const navigate = useNavigate();
 
   const getTotalPrice = () => {
@@ -45,7 +46,7 @@ const MyCart = () => {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item) => (
+              {cartItems.map((item: CartItem) => (
                 <tr key={item.id} className='border-b-2 border-gray-400'>
                   <td className='py-4'>
                     <img src={item.image} alt={item.title} className='w-24 h-24 rounded-xl' />

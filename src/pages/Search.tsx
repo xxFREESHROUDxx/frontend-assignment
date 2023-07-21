@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
-const Search = ({ onSearch }) => {
+interface SearchProps {
+  onSearch: (searchTeam: string) => void;
+}
+
+const Search: React.FC<SearchProps> = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     onSearch(searchTerm);
   }, [searchTerm]);
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: any) => {
     setSearchTerm(e.target.value);
   };
 

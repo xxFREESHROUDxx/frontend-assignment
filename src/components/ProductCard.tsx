@@ -1,17 +1,23 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ThemeContext } from '../context/ThemeContext';
+import { useThemeContext } from '../context/ThemeContext';
+import { Product } from '../context/types';
 
-const ProductCard = ({ product, addToCart }) => {
+interface ProductCardProps {
+  product: Product;
+  addToCart: () => void;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
   const navigate = useNavigate();
-  const { darkTheme } = useContext(ThemeContext);
+  const { darkTheme } = useThemeContext();
 
-  const handleNavigation = (productId) => {
+  const handleNavigation = (productId: number) => {
     navigate(`/product/${productId}`);
   };
 
-  const handleAddToCart = (e) => {
-    // prevent event propagatioin to avoid redirection when clicked on the button
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    // prevent event propagation to avoid redirection when clicked on the button
     e.stopPropagation();
     addToCart();
   };
