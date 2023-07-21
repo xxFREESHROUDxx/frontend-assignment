@@ -4,3 +4,9 @@
   text-align: center;
   padding: 2rem;
 }
+
+/* custom variable for switching the background color of the body  */
+:root {
+  --main-bg-color: #e8ebeb;
+  background-color: var(--main-bg-color);
+}

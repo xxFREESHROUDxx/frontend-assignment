@@ -1,28 +1,8 @@
 /* ------------------------------------------Custom classes for styling ---------------------- */
 
-/* .bg-dark {
-  background-color: #242424;
-}
-
-.text-light {
-  color: #242424;
-}
-
 .text-dark {
-  color: #f8f8f8;
+  color: #f5f6f6;
 }
-
-.text-primary {
-  color: #464cb3;
-}
-
-.bg-primary {
-  background-color: #464cb3;
-}
-
-.bg-secondary {
-  background-color: #ff6600;
-} */
 
 .bg-green {
   background-color: darkgreen;
@@ -30,10 +10,6 @@
 
 .text-green {
   color: darkgreen;
-}
-
-.bg-yellow {
-  background-color: #fbf0e4;
 }
 
 .bg-gray {
@@ -46,4 +22,18 @@
 
 .text-gray {
   color: #333;
+}
+
+.bg-purple {
+  background-color: #646cff;
+  color: #f8f8f8;
+}
+
+.text-purple {
+  color: #646cff;
+}
+
+.theme-dark {
+  background-color: #242424;
+  color: #f8f8f8;
 }
