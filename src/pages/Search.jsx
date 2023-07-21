@@ -5,14 +5,14 @@ const Search = ({ onSearch }) => {
 
   useEffect(() => {
     onSearch(searchTerm);
-  }, [searchTerm, onSearch]);
+  }, [searchTerm]);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
 
   return (
-    <div className='p-5 flex'>
+    <div className='p-5 mb-5 flex'>
       <input
         type='text'
         placeholder='Enter product name...'

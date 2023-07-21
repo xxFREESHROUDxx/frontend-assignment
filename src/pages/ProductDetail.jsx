@@ -23,19 +23,19 @@ const ProductDetail = () => {
     for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
         starArray.push(
-          <span key={i} className='text-yellow-400'>
+          <span key={i} className='text-yellow-400 text-xl'>
             ★
           </span>
         );
       } else if (i === fullStars && halfStar) {
         starArray.push(
-          <span key={i} className='text-yellow-400'>
+          <span key={i} className='text-yellow-400 text-xl'>
             ★
           </span>
         );
       } else {
         starArray.push(
-          <span key={i} className='text-gray-300'>
+          <span key={i} className='text-gray-300 text-xl'>
             ★
           </span>
         );
@@ -47,7 +47,7 @@ const ProductDetail = () => {
   return (
     <div className='p-5 flex flex-col justify-between items-center'>
       <ToastContainer />
-      <div className='grid md:grid-cols-2 gap-6'>
+      <div className='grid md:grid-cols-2 gap-2'>
         <div className=''>
           <img
             src={product.image}
@@ -55,18 +55,18 @@ const ProductDetail = () => {
             className='w-[500px] h-[700px] rounded-xl shadow-md mb-4'
           />
         </div>
-        <div className='border rounded-xl flex flex-col items-start gap-4 px-6 py-4 text-left'>
+        <div className='border rounded-xl flex flex-col items-start justify-evenly gap-4 px-6 py-4 text-left'>
           <div className='bg-blue-500 w-full text-white text-center rounded-lg px-4 py-2 mb-4'>
-            <h1 className='text-4xl font-bold'>{product.title}</h1>
+            <h1 className='text-3xl font-semibold'>{product.title}</h1>
           </div>
           <p className='text-2xl font-semibold mb-4'>
-            Price: $<span className='text-3xl font-bold'>{product.price}</span>
+            Price: $<span className='text-3xl font-semibold'>{product.price}</span>
           </p>
           <p className='text-xl mb-4'>
             <span className='font-bold'>Category:</span> {product.category}
           </p>
           <p className='text-xl mb-4'>
-            <p className='font-bold'>Description:</p> {product.description}
+            <p className='font-bold mb-1'>Description:</p> {product.description}
           </p>
           <div className='mb-4'>
             <p className='font-bold text-xl'>Rating:</p>

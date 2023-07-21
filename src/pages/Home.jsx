@@ -36,13 +36,15 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className='p-5 md:p-10 lg:p-16'>
       <ToastContainer />
-      <h1 className='mt-10'>All Products</h1>
+      <h1>All Products</h1>
       <Search onSearch={handleSearch} />
-      {searchResults.length === 0 && <h1>No results found.</h1>}
+      {searchResults.length === 0 && (
+        <h1 className='h-[500px] flex items-center justify-center'>No results found.</h1>
+      )}
       {searchResults.length > 0 && (
-        <div className='grid p-5 grid-cols-4 gap-4'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
           {searchResults.map((product) => (
             <ProductCard
               key={product.id}
