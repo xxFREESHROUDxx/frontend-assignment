@@ -25,3 +25,4 @@
 - Proper toast message displayed when added to cart
 - Search button is added as optional just for the design but the search happens in realtime without the need to press enter.
 - Dark and Light theme has been added as before I only had dark theme. Now with the use of Context that has been done. (theme is not stored in localstorage as we can always toggle that anytime so don't need to store it and fetch it)
+- Website is fully responsive
